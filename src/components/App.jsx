@@ -75,21 +75,27 @@ export class App extends Component {
           height: '100vh',
           display: 'flex',
           flexWrap: 'wrap',
-          flexDirection: 'column',
-
+          flexDirection: 'row',
+          justifyContent: 'space-around',
           alignItems: 'center',
+
           fontSize: 40,
           color: '#010101',
         }}
       >
-        <h1>Phonebook</h1>
-        <ContactForm onFormSubmit={this.addContact} />
-        <h2>Contacts</h2>
-        <Filter onFilterChange={this.onFilterChange} />
-        <ContactList
-          contacts={visibleContacts}
-          onContactDelete={this.onContactDelete}
-        />
+        <div>
+          {' '}
+          <h1>Phonebook</h1>
+          <ContactForm onFormSubmit={this.addContact} />
+          <h2>Contacts</h2>
+          <Filter onFilterChange={this.onFilterChange} />
+        </div>
+        <div>
+          <ContactList
+            contacts={visibleContacts}
+            onContactDelete={this.onContactDelete}
+          />
+        </div>
       </div>
     );
   }

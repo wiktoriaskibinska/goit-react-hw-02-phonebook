@@ -1,5 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
+import css from './ContactList.module.css';
 
 const ContactList = ({ contacts, onContactDelete }) => {
   return (
@@ -7,6 +8,7 @@ const ContactList = ({ contacts, onContactDelete }) => {
       style={{
         listStyle: 'none',
       }}
+      className={css.contactList}
     >
       {contacts.map(contact => (
         <ContactListItem
