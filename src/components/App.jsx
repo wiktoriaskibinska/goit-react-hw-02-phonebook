@@ -36,12 +36,11 @@ export class App extends Component {
 
   onFilterChange = evt => {
     this.setState({ filter: evt.target.value });
-    console.log(this.state.filter);
   };
 
   getVisibleContacts = () => {
     const normalizedFilter = this.state.filter.toLowerCase();
-    console.log(normalizedFilter);
+
     return this.state.contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
@@ -68,29 +67,31 @@ export class App extends Component {
 
   render() {
     const visibleContacts = this.getVisibleContacts();
-    console.log(visibleContacts);
     return (
       <div
         style={{
           height: '100vh',
-          display: 'flex',
-          flexWrap: 'wrap',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          alignItems: 'center',
 
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          textAlign: 'center',
           fontSize: 40,
           color: '#010101',
         }}
       >
         <div>
-          {' '}
           <h1>Phonebook</h1>
           <ContactForm onFormSubmit={this.addContact} />
           <h2>Contacts</h2>
           <Filter onFilterChange={this.onFilterChange} />
         </div>
-        <div>
+        <div
+          style={{
+            justifyContent: 'center',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
           <ContactList
             contacts={visibleContacts}
             onContactDelete={this.onContactDelete}
